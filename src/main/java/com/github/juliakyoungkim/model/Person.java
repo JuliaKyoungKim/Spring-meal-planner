@@ -1,27 +1,29 @@
-package com.github.juliakyoungkim.springmealplanner.Model;
+package com.github.juliakyoungkim.model;
 
-import jdk.jfr.DataAmount;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.UUID;
 
 @Entity
 public class Person {
     @Id
-    private final UUID id = UUID.randomUUID();
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String firstName;
     private String email;
     private String phoneNumber;
 
-    Person() {}
+    public Person() {}
     public Person(String firstName, String email, String phoneNumber) {
         this.firstName = firstName;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
